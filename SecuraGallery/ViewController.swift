@@ -73,7 +73,10 @@ class ViewController: UIViewController {
         }
         let vc = WebViewViewController(url: url, title: "Google")
         let navVC = UINavigationController(rootViewController: vc)
+        navVC.modalPresentationStyle = .custom
         present(navVC, animated: true)
+        
+        
     }
     
     
