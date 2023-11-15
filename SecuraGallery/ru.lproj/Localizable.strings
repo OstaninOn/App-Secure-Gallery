@@ -1,0 +1,40 @@
+/* 
+  Localizable.strings
+  SecuraGallery
+
+  Created by  aleksandr on 22.12.22.
+  
+*/
+
+// "the user will see a cancel button
+"сancelNotificationGallery" = "Отмена";
+
+// the user will see the camera button
+"notificationCamera" = "Камера";
+
+// the user will see the photo library button
+"notificationPhoto" = "Фотогалерея";
+
+// the user will see a URL button
+"urlNotification" = "Ссылка";
+
+// the user will see a notification title url
+"notificationTitleUrl" = "Введите ссылку";
+
+// the user will see a cancel alert url button
+"сancelNotificationUrl" = "Отмена";
+
+// the user will see a follow the link button
+"notificationAccept" = "Перейти";
+
+// the user will see password entry field
+"enterPassword" = "пароль";
+
+// the user will see error notification file not selected
+"notificationErrorAlert" = "Внимание";
+
+// the user will see error notification
+"notificationAlertmessageError" = "файл не выбран";
+
+// the user will see back button message error
+"closeErrorMessage" = "назад";

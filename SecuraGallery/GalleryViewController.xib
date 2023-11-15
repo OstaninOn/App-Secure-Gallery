@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GalleryViewController" customModule="SecuraGallery" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="O2c-2e-G0y" id="510-5t-gZH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1a-Rn-HLK">
+                    <rect key="frame" x="16" y="719" width="361" height="59"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="59" id="cZG-sO-mNm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="plus" catalog="system"/>
+                    <buttonConfiguration key="configuration" style="gray" image="plus" catalog="system">
+                        <fontDescription key="titleFontDescription" type="system" pointSize="32"/>
+                    </buttonConfiguration>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="kornerRadius">
+                            <integer key="value" value="33"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="pickImage:" destination="-1" eventType="touchUpInside" id="AaC-pJ-fLx"/>
+                    </connections>
+                </button>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="O2c-2e-G0y">
+                    <rect key="frame" x="0.0" y="59" width="393" height="644"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XvQ-ff-zF4">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="laX-hH-8L4">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <items>
+                        <navigationItem title="Фотогалерея" id="pA4-Ak-6hh"/>
+                    </items>
+                    <navigationBarAppearance key="standardAppearance" backgroundEffect="systemChromeMaterial"/>
+                    <navigationBarAppearance key="compactAppearance" backgroundEffect="systemUltraThinMaterial">
+                        <color key="backgroundColor" red="0.8701128363609314" green="0.83416879177093506" blue="0.9541965126991272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBarAppearance>
+                    <navigationBarAppearance key="scrollEdgeAppearance"/>
+                </navigationBar>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="O1a-Rn-HLK" secondAttribute="bottom" constant="40" id="0as-Xd-deM"/>
+                <constraint firstItem="O2c-2e-G0y" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="4Yl-ia-fNj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="O1a-Rn-HLK" secondAttribute="trailing" constant="16" id="94O-bK-9Ch"/>
+                <constraint firstItem="O2c-2e-G0y" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="KAO-lb-hjX"/>
+                <constraint firstItem="O2c-2e-G0y" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="jIZ-5v-kVI"/>
+                <constraint firstItem="O1a-Rn-HLK" firstAttribute="top" secondItem="O2c-2e-G0y" secondAttribute="bottom" constant="16" id="nX5-eH-Pxy"/>
+                <constraint firstItem="O1a-Rn-HLK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="sHq-ui-80U"/>
+            </constraints>
+            <point key="canvasLocation" x="101.5267175572519" y="20.422535211267608"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,15 @@
+/* 
+  InfoPlist.strings
+  SecuraGallery
+
+  Created by  aleksandr on 22.12.22.
+  
+*/
+
+"CFBundleDisplayName" = "Gallery";
+
+"NSCameraUsageDescription" = "allow access to camera";
+
+"NSFaceIDUsageDescription" = "allow access to face id";
+
+"NSPhotoLibraryUsageDescription" = "allow access to PhotoLibrary";
