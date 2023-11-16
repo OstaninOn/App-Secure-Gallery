@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo_2022-11-06_15-08-50" translatesAutoresizingMaskIntoConstraints="NO" id="HnK-QM-Gf7">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img2.akspic.ru-uzor-purpur-sinij-yachejka-osveshhenie-2340x5064" translatesAutoresizingMaskIntoConstraints="NO" id="HnK-QM-Gf7">
                                 <rect key="frame" x="0.0" y="-4" width="372" height="812"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="tintColor" systemColor="labelColor"/>
@@ -332,9 +332,9 @@
     <resources>
         <image name="eye" catalog="system" width="128" height="79"/>
         <image name="faceid" catalog="system" width="128" height="115"/>
+        <image name="img2.akspic.ru-uzor-purpur-sinij-yachejka-osveshhenie-2340x5064" width="2340" height="5064"/>
         <image name="key.viewfinder" catalog="system" width="128" height="115"/>
         <image name="magnifyingglass.circle" catalog="system" width="128" height="123"/>
-        <image name="photo_2022-11-06_15-08-50" width="640" height="1136"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
