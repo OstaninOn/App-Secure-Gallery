@@ -17,12 +17,30 @@ class GalleryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        buttonBack()
+        self.navigationItem.title = "Фотогалерея"
+        
         
         setupCollectionView()
         let gesture = UIPinchGestureRecognizer(target: self, action: #selector(changeCountInRow))
         collectionView.addGestureRecognizer(gesture)
+    
     }
-  
+    
+    
+    
+    private func buttonBack() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(didTapDone))
+    }
+    @objc private func didTapDone() {
+      dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    
+    
     private func setupCollectionView() {
         collectionView.register(ImageCell.nib(), forCellWithReuseIdentifier: ImageCell.identifier)
         collectionView.delegate = self

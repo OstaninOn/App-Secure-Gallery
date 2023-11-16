@@ -91,7 +91,7 @@ class ViewController: UIViewController {
         let gallery = GalleryViewController()
        
         let navigation = UINavigationController(rootViewController: gallery)
-        navigation.modalPresentationStyle = .automatic
+        navigation.modalPresentationStyle = .custom
         
         present(navigation, animated: true)
         return
