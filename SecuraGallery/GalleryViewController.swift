@@ -12,7 +12,7 @@ class GalleryViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var images: [UIImage] = []
-    var imagesPerLine: CGFloat = 4
+    var imagesPerLine: CGFloat = 2
     let imageSpacing: CGFloat = 2
     
     override func viewDidLoad() {
@@ -31,6 +31,8 @@ class GalleryViewController: UIViewController {
     
     private func buttonBack() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(didTapDone))
+        
+    
     }
     @objc private func didTapDone() {
       dismiss(animated: true, completion: nil)
@@ -258,3 +260,4 @@ extension GalleryViewController : UICollectionViewDelegateFlowLayout {
         }
 
 }
+
