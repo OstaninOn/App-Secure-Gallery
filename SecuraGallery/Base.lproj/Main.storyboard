@@ -29,7 +29,7 @@
                                     <constraint firstAttribute="width" constant="309" id="PSP-ut-FXE"/>
                                     <constraint firstAttribute="height" constant="109" id="oCf-rN-VuB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="BodoniSvtyTwoSCITCTT-Book" family="Bodoni 72 Smallcaps" pointSize="86"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="80"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

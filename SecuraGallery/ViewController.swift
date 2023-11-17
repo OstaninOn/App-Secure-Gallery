@@ -9,6 +9,8 @@ import LocalAuthentication
 
 class ViewController: UIViewController {
     
+    var search = ""
+    
     @IBOutlet weak var penPin: UIButton!
     
     @IBOutlet weak var showPinButton: UIButton!
@@ -23,6 +25,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         let password = NSLocalizedString("enterPassword", comment: "the user will see password entry field")
         pinField.placeholder = password
         pinField.layer.shadowOffset = CGSize(width: 5, height: 5)
@@ -41,6 +45,8 @@ class ViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        
     }
     
     deinit {
@@ -76,7 +82,6 @@ class ViewController: UIViewController {
         navVC.modalPresentationStyle = .custom
         present(navVC, animated: true)
         
-        
     }
     
     
@@ -85,18 +90,26 @@ class ViewController: UIViewController {
     }
     
     @IBAction func penPinGallery(_ sender: Any) {
-        
+
         view.endEditing(true)
-        guard pinField.text == "1234" else { return }
-        let gallery = GalleryViewController()
-       
-        let navigation = UINavigationController(rootViewController: gallery)
-        navigation.modalPresentationStyle = .custom
         
-        present(navigation, animated: true)
+        if pinField.text == "1234" {
+            
+            let gallery = GalleryViewController()
+            
+            let navigation = UINavigationController(rootViewController: gallery)
+            navigation.modalPresentationStyle = .custom
+            present(navigation, animated: true)
+        } else {
+            statusLabel.text = ""
+        }
+        pinField.text = ""
         return
         
     }
+    
+    
+    
    
     @IBAction func showPinn(_ sender: Any) {
         pinField.isSecureTextEntry.toggle()
@@ -120,10 +133,12 @@ class ViewController: UIViewController {
                 localizedReason: reason
             ) { success, error in
                 DispatchQueue.main.async {
+                    
                     guard success, error == nil else {
                         self.statusLabel.text = "ошибка"
                         self.statusLabel.textColor = .red
                         self.showAlert(title: "ошибка", message: "попробуйте снова")
+                        
                         return
                     }
                     
@@ -134,7 +149,7 @@ class ViewController: UIViewController {
                     let navigation = UINavigationController(rootViewController: gallery)
                     navigation.modalPresentationStyle = .fullScreen
                     self.present(navigation, animated: false)
-                    
+                    self.statusLabel.text = ""
                 }
                 
             }
@@ -146,6 +161,9 @@ class ViewController: UIViewController {
         }
     }
 }
+
+
+
 extension ViewController {
     private func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
