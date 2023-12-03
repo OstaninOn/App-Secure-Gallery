@@ -13,12 +13,12 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SecuraGallery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="partialCurl" id="BYZ-38-t0r" customClass="ViewController" customModule="SecuraGallery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img2.akspic.ru-uzor-purpur-sinij-yachejka-osveshhenie-2340x5064" translatesAutoresizingMaskIntoConstraints="NO" id="HnK-QM-Gf7">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lis" translatesAutoresizingMaskIntoConstraints="NO" id="HnK-QM-Gf7">
                                 <rect key="frame" x="0.0" y="-4" width="372" height="812"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="tintColor" systemColor="labelColor"/>
@@ -275,48 +275,65 @@
         <scene sceneID="NQq-oh-HEk">
             <objects>
                 <viewController storyboardIdentifier="SchowPhotoViewController" id="8l9-V0-qOO" customClass="SchowPhotoViewController" customModule="SecuraGallery" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="24K-rq-9aB">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="24K-rq-9aB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="60" translatesAutoresizingMaskIntoConstraints="NO" id="aLo-zA-tZJ">
-                                <rect key="frame" x="0.0" y="50" width="375" height="728"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" maximumZoomScale="60" translatesAutoresizingMaskIntoConstraints="NO" id="aLo-zA-tZJ">
+                                <rect key="frame" x="0.0" y="85" width="375" height="693"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pM3-bn-1lD">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="728"/>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pM3-bn-1lD">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="693"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="pM3-bn-1lD" firstAttribute="leading" secondItem="aLo-zA-tZJ" secondAttribute="leading" id="DKd-gU-G5T"/>
-                                    <constraint firstAttribute="bottom" secondItem="pM3-bn-1lD" secondAttribute="bottom" id="Ll6-tt-Cdh"/>
-                                    <constraint firstAttribute="trailing" secondItem="pM3-bn-1lD" secondAttribute="trailing" id="Nxa-Ss-aiy"/>
-                                    <constraint firstItem="pM3-bn-1lD" firstAttribute="centerX" secondItem="aLo-zA-tZJ" secondAttribute="centerX" id="O3H-Ky-r6P"/>
-                                    <constraint firstItem="pM3-bn-1lD" firstAttribute="top" secondItem="aLo-zA-tZJ" secondAttribute="top" id="VgB-xd-wmc"/>
-                                    <constraint firstItem="pM3-bn-1lD" firstAttribute="centerY" secondItem="aLo-zA-tZJ" secondAttribute="centerY" id="nRP-iA-eoY"/>
-                                </constraints>
-                            </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sY0-Ga-jhq">
-                                <rect key="frame" x="324" y="50" width="35" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="DY5-0E-Vz3"/>
-                                    <constraint firstAttribute="width" constant="35" id="geg-AU-Xnv"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
+                                <viewLayoutGuide key="safeArea" id="UWA-lQ-J0n"/>
                                 <connections>
-                                    <action selector="dismissVC:" destination="8l9-V0-qOO" eventType="touchUpInside" id="MKS-lO-GDa"/>
+                                    <outlet property="delegate" destination="cwC-Sh-dWl" id="h5b-Hu-Sb8"/>
                                 </connections>
-                            </button>
+                            </scrollView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pgg-Mx-ziK">
+                                <rect key="frame" x="0.0" y="41" width="375" height="44"/>
+                                <items>
+                                    <navigationItem id="cwC-Sh-dWl">
+                                        <barButtonItem key="rightBarButtonItem" springLoaded="YES" id="qA5-Yw-Dcf">
+                                            <button key="customView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="headTruncation" id="sY0-Ga-jhq">
+                                                <rect key="frame" x="311.66666666666669" y="5" width="47.333333333333314" height="34.333333333333336"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <imageReference key="image" image="xmark" catalog="system" symbolScale="large" variableValue="0.0"/>
+                                                </state>
+                                                <buttonConfiguration key="configuration" style="plain" cornerStyle="large">
+                                                    <imageReference key="image" image="xmark" catalog="system" symbolScale="large" variableValue="0.0"/>
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="strokeColor" red="0.96841138599999999" green="0.83619263300000002" blue="0.055949314360000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </backgroundConfiguration>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" weight="bold"/>
+                                                    <color key="baseForegroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="dismissVC:" destination="8l9-V0-qOO" eventType="touchUpInside" id="MKS-lO-GDa"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <navigationBarAppearance key="standardAppearance" backgroundImageContentMode="scaleToFill">
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </navigationBarAppearance>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Zb7-WN-Gdz"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Zb7-WN-Gdz" firstAttribute="trailing" secondItem="aLo-zA-tZJ" secondAttribute="trailing" id="50Z-NO-I8h"/>
-                            <constraint firstItem="aLo-zA-tZJ" firstAttribute="leading" secondItem="Zb7-WN-Gdz" secondAttribute="leading" id="XFY-XA-wcK"/>
-                            <constraint firstItem="sY0-Ga-jhq" firstAttribute="top" secondItem="Zb7-WN-Gdz" secondAttribute="top" id="XHd-8M-LVs"/>
-                            <constraint firstItem="Zb7-WN-Gdz" firstAttribute="trailing" secondItem="sY0-Ga-jhq" secondAttribute="trailing" constant="16" id="YVd-EX-MWm"/>
-                            <constraint firstItem="aLo-zA-tZJ" firstAttribute="top" secondItem="Zb7-WN-Gdz" secondAttribute="top" id="dMb-4U-vxf"/>
-                            <constraint firstItem="Zb7-WN-Gdz" firstAttribute="bottom" secondItem="aLo-zA-tZJ" secondAttribute="bottom" id="gPO-he-iC8"/>
+                            <constraint firstItem="pgg-Mx-ziK" firstAttribute="trailing" secondItem="Zb7-WN-Gdz" secondAttribute="trailing" id="9hj-FK-g6J"/>
+                            <constraint firstItem="pgg-Mx-ziK" firstAttribute="leading" secondItem="Zb7-WN-Gdz" secondAttribute="leading" id="XJc-nA-D2q"/>
+                            <constraint firstItem="pgg-Mx-ziK" firstAttribute="top" secondItem="Zb7-WN-Gdz" secondAttribute="bottom" constant="-737" id="q3t-QY-3Zl"/>
                         </constraints>
                     </view>
                     <connections>
@@ -326,21 +343,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jex-5C-ye3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="993" y="3"/>
+            <point key="canvasLocation" x="992.79999999999995" y="2.9556650246305418"/>
         </scene>
     </scenes>
     <resources>
         <image name="eye" catalog="system" width="128" height="79"/>
         <image name="faceid" catalog="system" width="128" height="115"/>
-        <image name="img2.akspic.ru-uzor-purpur-sinij-yachejka-osveshhenie-2340x5064" width="2340" height="5064"/>
         <image name="key.viewfinder" catalog="system" width="128" height="115"/>
+        <image name="lis" width="720" height="1280"/>
         <image name="magnifyingglass.circle" catalog="system" width="128" height="123"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

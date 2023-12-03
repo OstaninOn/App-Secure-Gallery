@@ -6,47 +6,49 @@
 
 import UIKit
 import PhotosUI
+import Photos
 
 class GalleryViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    
+    @IBOutlet weak var deleteButton: UIBarButtonItem!
+    @IBOutlet weak var bottomNav: UINavigationBar!
+    
     var images: [UIImage] = []
-    var imagesPerLine: CGFloat = 2
+    var imagesPerLine: CGFloat = 3
     let imageSpacing: CGFloat = 2
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = editButtonItem
+       addLongPressToCollectionView()
+        
         buttonBack()
         self.navigationItem.title = "Фотогалерея"
-        
         
         setupCollectionView()
         let gesture = UIPinchGestureRecognizer(target: self, action: #selector(changeCountInRow))
         collectionView.addGestureRecognizer(gesture)
-    
+        
     }
-    
-    
-    
+ 
     private func buttonBack() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(didTapDone))
-        
-    
+ 
     }
     @objc private func didTapDone() {
       dismiss(animated: true, completion: nil)
     }
-    
-    
-    
-    
-    
-    
+ 
     private func setupCollectionView() {
         collectionView.register(ImageCell.nib(), forCellWithReuseIdentifier: ImageCell.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.layer.cornerRadius = 20
         loadImage()
     }
 
@@ -68,6 +70,7 @@ class GalleryViewController: UIViewController {
             self.present(phPickerVC, animated: true)
             
             self.showPicker(withSourceType: .photoLibrary)
+            
         }
         
         let cencelSelection = NSLocalizedString("сancelNotificationGallery", comment: "the user will see a cancel button")
@@ -93,7 +96,7 @@ class GalleryViewController: UIViewController {
                 }
             }
             let cencelSelectionUrl = NSLocalizedString("сancelNotificationUrl", comment: "the user will see a cancel alert url button")
-            let cencelAlert = UIAlertAction(title: cencelSelectionUrl, style: .default)
+            let cencAlert = UIAlertAction(title: cencelSelectionUrl, style: .default)
             urlAlert.addAction(acceptAction)
             urlAlert.addAction(cancelAction)
             self?.present(urlAlert, animated: true)
@@ -113,7 +116,7 @@ class GalleryViewController: UIViewController {
     
     func setImage(_ image: UIImage, withName name: String? = nil) {
         images.append(image)
-     
+        
         let fileName = name ?? UUID().uuidString
         let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         let fileURL = URL(fileURLWithPath: fileName, relativeTo: directoryURL).appendingPathExtension("jpg")
@@ -172,10 +175,32 @@ class GalleryViewController: UIViewController {
     pickerController.sourceType = sourceType
     
     present(pickerController, animated: true)
+        
     }
-}
-extension GalleryViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, PHPickerViewControllerDelegate {
+   
     
+    
+    @IBAction func deleteSelectedItems(_ sender: UIBarButtonItem) {
+       
+        if let selectedItems = collectionView.indexPathsForSelectedItems {
+            let items = selectedItems.map { $0.item }.sorted().reversed()
+            for item in items {
+                images.remove(at: item)
+            }
+            collectionView.deleteItems(at: selectedItems)
+            UserDefaults.standard.set(images.count, forKey: "images.count")
+        }
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    
+}
+
+
+extension GalleryViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, PHPickerViewControllerDelegate {
+     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         dismiss(animated: true)
         for result in results {
@@ -185,12 +210,14 @@ extension GalleryViewController: UIImagePickerControllerDelegate, UINavigationCo
                 } else if let data = object as? Data,
                 let image = UIImage(data: data){
                     self.setImage(image)
+                    
                 }
             }
         }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
         guard let image = info[.originalImage] as? UIImage else { return }
         var name: String?
         if let imageName = info[.imageURL] as? URL {
@@ -198,8 +225,9 @@ extension GalleryViewController: UIImagePickerControllerDelegate, UINavigationCo
         }
         setImage(image, withName: name)
         self.presentedViewController?.dismiss(animated: true)
-            }
-
+   
+    }
+        
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.presentedViewController?.dismiss(animated: true)
         let errorNotification = NSLocalizedString("notificationErrorAlert", comment: "the user will see error notification file not selected")
@@ -215,49 +243,108 @@ extension GalleryViewController: UIImagePickerControllerDelegate, UINavigationCo
 extension GalleryViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-        
-        guard let destinationViewController = storyboard.instantiateViewController(withIdentifier: "SchowPhotoViewController") as? SchowPhotoViewController else { return }
-        
-        destinationViewController.image = images[indexPath.row]
-        destinationViewController.modalPresentationStyle = .fullScreen
-        present(destinationViewController, animated: true)
+        if !isEditing {
+            
+            let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+            
+            guard let destinationViewController = storyboard.instantiateViewController(withIdentifier: "SchowPhotoViewController") as? SchowPhotoViewController else { return }
+            
+            destinationViewController.image = images[indexPath.row]
+            destinationViewController.modalPresentationStyle = .fullScreen
+            present(destinationViewController, animated: true)
+        }
+    }
+    
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        collectionView.allowsMultipleSelection = editing
+        bottomNav.isHidden = !isEditing
+        collectionView.indexPathsForSelectedItems?.forEach ({(indexPath) in
+            collectionView.deselectItem(at: indexPath, animated: false)
+        })
+        collectionView.indexPathsForVisibleItems.forEach { (indexPath) in
+            let cell = collectionView.cellForItem(at: indexPath) as! ImageCell
+            cell.isEditing = editing
+        }
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
 }
 
+
 extension GalleryViewController : UICollectionViewDataSource {
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-        images.count
+         images.count
+      
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
+        
         let index = indexPath.row
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier:ImageCell.identifier, for: indexPath) as? ImageCell else { return UICollectionViewCell()}
-
+        
         cell.configure(withImage: images[index])
-
+        cell.layer.cornerRadius = 20
+        cell.isEditing = isEditing
         return cell
     }
 }
 
 extension GalleryViewController : UICollectionViewDelegateFlowLayout {
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout : UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let totalHorizontalSpacing = (imagesPerLine - 1) * imageSpacing
+        let totalHorizontalSpacing = (imagesPerLine - 0.2) * imageSpacing
         let width = (collectionView.bounds.width - totalHorizontalSpacing) / imagesPerLine
         return CGSize(width: width, height: width)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return imageSpacing
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return imageSpacing
+    }
+    
+   
+    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let item = images.remove(at: sourceIndexPath.item)
+        images.insert(item, at: destinationIndexPath.item)
+    }
+    
+    func addLongPressToCollectionView() {
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longProgressGesture(gesture:)))
+        self.collectionView.addGestureRecognizer(longPress)
+    }
+    
 
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-            return imageSpacing
+    @objc func longProgressGesture(gesture: UILongPressGestureRecognizer) {
+        switch gesture.state {
+        case .began:
+            guard let selectedIndexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else { return }
+            collectionView.beginInteractiveMovementForItem(at: selectedIndexPath)
+        case .changed:
+            
+            collectionView
+                .updateInteractiveMovementTargetPosition(gesture
+                    .location(in: gesture.view))
+        case .ended:
+            collectionView.endInteractiveMovement()
+        default:
+            collectionView.cancelInteractiveMovement()
+            
         }
-
+        UserDefaults.standard.set(images.count, forKey: "images.count")
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+  
 }
-
