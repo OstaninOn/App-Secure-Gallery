@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Photos
 
 class SchowPhotoViewController: UIViewController, UIScrollViewDelegate {
     let size : CGFloat = 60
@@ -19,9 +20,12 @@ class SchowPhotoViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         setUp()
     }
+    
+   
     private func setUp() {
         imageView.image = image
         scrollView.delegate = self
@@ -36,4 +40,7 @@ class SchowPhotoViewController: UIViewController, UIScrollViewDelegate {
         return imageView
     }
 
-}
+       
+    
+    }
+ 
