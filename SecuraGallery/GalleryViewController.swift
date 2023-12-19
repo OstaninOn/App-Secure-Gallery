@@ -17,7 +17,7 @@ class GalleryViewController: UIViewController {
     @IBOutlet weak var bottomNav: UINavigationBar!
     
     var images: [UIImage] = []
-    var imagesPerLine: CGFloat = 3
+    var imagesPerLine: CGFloat = 4
     let imageSpacing: CGFloat = 2
     
     
@@ -27,21 +27,27 @@ class GalleryViewController: UIViewController {
         navigationItem.rightBarButtonItem = editButtonItem
        addLongPressToCollectionView()
         
+        
         buttonBack()
         self.navigationItem.title = "Фотогалерея"
         
         setupCollectionView()
         let gesture = UIPinchGestureRecognizer(target: self, action: #selector(changeCountInRow))
         collectionView.addGestureRecognizer(gesture)
-        
+        self.collectionView.reloadData()
     }
  
+   
+    
+    
     private func buttonBack() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(didTapDone))
- 
+        
     }
+    
     @objc private func didTapDone() {
       dismiss(animated: true, completion: nil)
+        
     }
  
     private func setupCollectionView() {
@@ -188,11 +194,14 @@ class GalleryViewController: UIViewController {
                 images.remove(at: item)
             }
             collectionView.deleteItems(at: selectedItems)
-            UserDefaults.standard.set(images.count, forKey: "images.count")
+           // UserDefaults.standard.set(items, forKey: "images")
         }
+       
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
+        UserDefaults.standard.set(images.count, forKey: "images.count")
+        
     }
     
     
@@ -225,7 +234,7 @@ extension GalleryViewController: UIImagePickerControllerDelegate, UINavigationCo
         }
         setImage(image, withName: name)
         self.presentedViewController?.dismiss(animated: true)
-   
+        
     }
         
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -267,9 +276,6 @@ extension GalleryViewController: UICollectionViewDelegate {
             let cell = collectionView.cellForItem(at: indexPath) as! ImageCell
             cell.isEditing = editing
         }
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
     }
 }
 
@@ -289,7 +295,9 @@ extension GalleryViewController : UICollectionViewDataSource {
         cell.configure(withImage: images[index])
         cell.layer.cornerRadius = 20
         cell.isEditing = isEditing
+        
         return cell
+        
     }
 }
 
@@ -311,17 +319,20 @@ extension GalleryViewController : UICollectionViewDelegateFlowLayout {
     
    
     func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        
         return true
     }
     
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let item = images.remove(at: sourceIndexPath.item)
         images.insert(item, at: destinationIndexPath.item)
+      
     }
     
     func addLongPressToCollectionView() {
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longProgressGesture(gesture:)))
         self.collectionView.addGestureRecognizer(longPress)
+        
     }
     
 
@@ -330,8 +341,8 @@ extension GalleryViewController : UICollectionViewDelegateFlowLayout {
         case .began:
             guard let selectedIndexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else { return }
             collectionView.beginInteractiveMovementForItem(at: selectedIndexPath)
-        case .changed:
             
+        case .changed:
             collectionView
                 .updateInteractiveMovementTargetPosition(gesture
                     .location(in: gesture.view))
@@ -341,10 +352,7 @@ extension GalleryViewController : UICollectionViewDelegateFlowLayout {
             collectionView.cancelInteractiveMovement()
             
         }
-        UserDefaults.standard.set(images.count, forKey: "images.count")
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
+
     }
   
 }

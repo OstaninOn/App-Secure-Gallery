@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "img2.akspic.ru-usy-belye-bakenbardy-krupnyj_plan-hishhnik-6000x4000.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

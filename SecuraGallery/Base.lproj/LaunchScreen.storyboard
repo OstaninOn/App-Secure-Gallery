@@ -16,20 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lis" translatesAutoresizingMaskIntoConstraints="NO" id="iQ5-jf-2mY">
+                            <imageView opaque="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iQ5-jf-2mY">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="iQ5-jf-2mY" secondAttribute="bottom" id="5sO-GI-QJ8"/>
-                            <constraint firstItem="iQ5-jf-2mY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ive-nP-TSG"/>
-                            <constraint firstItem="iQ5-jf-2mY" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="MEJ-SZ-Oxf"/>
                             <constraint firstItem="iQ5-jf-2mY" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="bIu-yV-RpF"/>
                             <constraint firstItem="iQ5-jf-2mY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="fOs-xB-VZq"/>
                             <constraint firstItem="iQ5-jf-2mY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hDS-8A-TNx"/>
                             <constraint firstAttribute="bottom" secondItem="iQ5-jf-2mY" secondAttribute="bottom" id="kbk-VI-TPQ"/>
-                            <constraint firstItem="iQ5-jf-2mY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="uCQ-Jc-KzO"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -38,7 +34,4 @@
             <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="lis" width="720" height="1280"/>
-    </resources>
 </document>

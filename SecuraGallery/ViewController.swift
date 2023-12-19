@@ -10,6 +10,7 @@ import LocalAuthentication
 class ViewController: UIViewController {
     
     var search = ""
+    var isAnimated = false
     
     @IBOutlet weak var penPin: UIButton!
     
@@ -25,7 +26,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         
         let password = NSLocalizedString("enterPassword", comment: "the user will see password entry field")
         pinField.placeholder = password
@@ -33,13 +34,19 @@ class ViewController: UIViewController {
         pinField.layer.shadowOpacity = 1
         pinField.layer.shadowRadius = 2
         
-        glleryLabel.layer.shadowOffset = CGSize(width: 5, height: 5)
-        glleryLabel.layer.shadowOpacity = 0.5
-        glleryLabel.layer.shadowRadius = 0.8
+    //    glleryLabel.backgroundColor = .black
+        glleryLabel.layer.cornerRadius = 40
+        glleryLabel.layer.shadowColor = UIColor.black.cgColor
+        glleryLabel.layer.shadowOffset = CGSize.zero
+        glleryLabel.layer.shadowOpacity = 1
+        glleryLabel.layer.shadowRadius = 4
         glleryLabel.layer.masksToBounds = false
-        glleryLabel.layer.cornerRadius = 1
         
-        showPinButton.setImage(UIImage(systemName: "eye"), for: .normal)
+        var conf = UIButton.Configuration.plain()
+        
+        showPinButton.setImage(UIImage(systemName: "eye"), for: .focused)
+        
+        
         showPinButton.setImage(UIImage(systemName: "eye.slash"), for: .selected)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
         
@@ -114,6 +121,7 @@ class ViewController: UIViewController {
     @IBAction func showPinn(_ sender: Any) {
         pinField.isSecureTextEntry.toggle()
         showPinButton.isSelected = !pinField.isSecureTextEntry
+        
     }
     
     

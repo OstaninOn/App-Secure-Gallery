@@ -21,18 +21,17 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1a-Rn-HLK">
-                    <rect key="frame" x="55" y="709" width="283" height="59"/>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1a-Rn-HLK">
+                    <rect key="frame" x="150" y="775" width="93" height="43"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="59" id="cZG-sO-mNm"/>
+                        <constraint firstAttribute="height" constant="43" id="cZG-sO-mNm"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" image="plus" catalog="system"/>
-                    <buttonConfiguration key="configuration" style="gray" image="plus.viewfinder" catalog="system" cornerStyle="large">
-                        <backgroundConfiguration key="background">
-                            <color key="strokeColor" red="0.96841138599999999" green="0.83619263300000002" blue="0.055949314360000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        </backgroundConfiguration>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <state key="normal" image="add">
+                        <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                    </state>
+                    <buttonConfiguration key="configuration" style="plain" image="ad" cornerStyle="dynamic">
                         <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large" weight="bold"/>
                         <color key="baseForegroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </buttonConfiguration>
@@ -46,7 +45,7 @@
                     </connections>
                 </button>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="O2c-2e-G0y">
-                    <rect key="frame" x="0.0" y="59" width="393" height="634"/>
+                    <rect key="frame" x="0.0" y="59" width="393" height="708"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zTK-nz-fad">
                         <size key="itemSize" width="128" height="128"/>
@@ -55,38 +54,46 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <navigationBar hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lI2-4H-u9F">
-                    <rect key="frame" x="0.0" y="808" width="393" height="44"/>
+                <navigationBar hidden="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="lI2-4H-u9F">
+                    <rect key="frame" x="8" y="774" width="377" height="44"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <items>
                         <navigationItem id="mgW-LQ-Uen">
-                            <barButtonItem key="rightBarButtonItem" systemItem="trash" id="eLH-kJ-J7G">
+                            <barButtonItem key="rightBarButtonItem" image="del" id="eLH-kJ-J7G">
+                                <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-1"/>
+                                <color key="tintColor" red="0.99316412210000005" green="0.23583644279999999" blue="0.1702437295" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <action selector="deleteSelectedItems:" destination="-1" id="VEr-7w-CzU"/>
                                 </connections>
                             </barButtonItem>
                         </navigationItem>
                     </items>
+                    <navigationBarAppearance key="standardAppearance">
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBarAppearance>
                 </navigationBar>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="O1a-Rn-HLK" secondAttribute="bottom" constant="50" id="0as-Xd-deM"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="O1a-Rn-HLK" secondAttribute="bottom" id="0as-Xd-deM"/>
                 <constraint firstItem="O2c-2e-G0y" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="4Yl-ia-fNj"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="O1a-Rn-HLK" secondAttribute="trailing" constant="55" id="94O-bK-9Ch"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="O1a-Rn-HLK" secondAttribute="trailing" constant="150" id="94O-bK-9Ch"/>
                 <constraint firstItem="O2c-2e-G0y" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="KAO-lb-hjX"/>
-                <constraint firstItem="lI2-4H-u9F" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="MGx-iW-Oum"/>
-                <constraint firstAttribute="bottom" secondItem="lI2-4H-u9F" secondAttribute="bottom" id="W9o-A7-0E2"/>
+                <constraint firstItem="lI2-4H-u9F" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="MGx-iW-Oum"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lI2-4H-u9F" secondAttribute="bottom" id="W9o-A7-0E2"/>
                 <constraint firstItem="O2c-2e-G0y" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="jIZ-5v-kVI"/>
-                <constraint firstItem="O1a-Rn-HLK" firstAttribute="top" secondItem="O2c-2e-G0y" secondAttribute="bottom" constant="16" id="nX5-eH-Pxy"/>
-                <constraint firstAttribute="trailing" secondItem="lI2-4H-u9F" secondAttribute="trailing" id="nn8-Gm-N5S"/>
-                <constraint firstItem="O1a-Rn-HLK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="55" id="sHq-ui-80U"/>
+                <constraint firstItem="O1a-Rn-HLK" firstAttribute="top" secondItem="O2c-2e-G0y" secondAttribute="bottom" constant="8" id="nX5-eH-Pxy"/>
+                <constraint firstAttribute="trailing" secondItem="lI2-4H-u9F" secondAttribute="trailing" constant="8" id="nn8-Gm-N5S"/>
+                <constraint firstItem="O1a-Rn-HLK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="150" id="sHq-ui-80U"/>
             </constraints>
             <point key="canvasLocation" x="101.5267175572519" y="20.422535211267608"/>
         </view>
     </objects>
     <resources>
-        <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="plus.viewfinder" catalog="system" width="128" height="115"/>
+        <image name="ad" width="45" height="45"/>
+        <image name="add" width="50" height="50"/>
+        <image name="del" width="100" height="100"/>
     </resources>
 </document>

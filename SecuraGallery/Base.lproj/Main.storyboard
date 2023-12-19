@@ -9,6 +9,14 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="RubikDoodleShadow-Regular.ttf">
+            <string>RubikDoodleShadow-Regular</string>
+        </array>
+        <array key="a_bosanova.ttf">
+            <string>ABosaNova</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -18,34 +26,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lis" translatesAutoresizingMaskIntoConstraints="NO" id="HnK-QM-Gf7">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG" translatesAutoresizingMaskIntoConstraints="NO" id="HnK-QM-Gf7">
                                 <rect key="frame" x="0.0" y="-4" width="372" height="812"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gallery" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuA-YC-ZHn">
-                                <rect key="frame" x="33" y="64" width="309" height="109"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gallery" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuA-YC-ZHn">
+                                <rect key="frame" x="10" y="209" width="355" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="309" id="PSP-ut-FXE"/>
-                                    <constraint firstAttribute="height" constant="109" id="oCf-rN-VuB"/>
+                                    <constraint firstAttribute="height" constant="150" id="oCf-rN-VuB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="80"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="RubikDoodleShadow-Regular" family="Rubik Doodle Shadow" pointSize="80"/>
+                                <color key="textColor" red="0.2874416709" green="0.62264442440000001" blue="0.41173309089999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                <size key="shadowOffset" width="3" height="-2"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MHO-sV-CpX">
-                                <rect key="frame" x="16" y="189" width="343" height="589"/>
+                                <rect key="frame" x="16" y="389" width="343" height="389"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="86C-6u-yAb">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="589"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="389"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AE8-Ey-PZu">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="263"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="63"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6AH-4r-7nE">
-                                                <rect key="frame" x="0.0" y="278" width="343" height="55"/>
+                                                <rect key="frame" x="0.0" y="78" width="343" height="55"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E0X-75-39A">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="55"/>
@@ -54,7 +66,7 @@
                                                             <constraint firstAttribute="height" constant="55" id="o1u-BF-cfF"/>
                                                         </constraints>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                                        <fontDescription key="fontDescription" name="RubikDoodleShadow-Regular" family="Rubik Doodle Shadow" pointSize="30"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1j-7q-nTE">
@@ -62,19 +74,21 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="e1j-7q-nTE" secondAttribute="height" multiplier="1:1" id="3ah-UQ-fap"/>
                                                         </constraints>
-                                                        <color key="tintColor" red="0.48621922909999998" green="0.1900597681" blue="0.20828041620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="tintColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" image="eye" catalog="system">
+                                                        <state key="normal">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <imageReference key="image" image="eye" catalog="system" symbolScale="large" variableValue="0.0"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="showPinn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GvJ-Xz-xtD"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRG-8T-bFE">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRG-8T-bFE">
                                                         <rect key="frame" x="8" y="12" width="284" height="31"/>
-                                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="26"/>
-                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="ABosaNova" family="a_BosaNova" pointSize="5"/>
+                                                        <color key="textColor" systemColor="systemIndigoColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -94,34 +108,33 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WJJ-qt-soh">
-                                                <rect key="frame" x="0.0" y="348" width="343" height="8"/>
+                                                <rect key="frame" x="0.0" y="148" width="343" height="8"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="8" id="DZm-0y-lsU"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KEY-Zs-cVY">
-                                                <rect key="frame" x="0.0" y="371" width="343" height="55"/>
+                                                <rect key="frame" x="0.0" y="171" width="343" height="55"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSV-cb-RSm">
-                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="55"/>
-                                                        <color key="backgroundColor" red="0.47095005559999997" green="0.94680161910000005" blue="0.78377451480000004" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <rect key="frame" x="80" y="0.0" width="200" height="55"/>
+                                                        <color key="backgroundColor" red="0.30725717540000003" green="0.66189664599999998" blue="0.45094966889999999" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="EVj-Un-bHT"/>
                                                             <constraint firstAttribute="height" constant="55" id="pqS-t4-h1l"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="BodoniSvtyTwoSCITCTT-Book" family="Bodoni 72 Smallcaps" pointSize="25"/>
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="RubikDoodleShadow-Regular" family="Rubik Doodle Shadow" pointSize="25"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="   Open">
+                                                        <state key="normal" title="Open">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <imageReference key="image" image="key.viewfinder" catalog="system" symbolScale="large"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                                 <integer key="value" value="20"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
-                                                                <size key="value" width="1" height="5"/>
+                                                                <size key="value" width="2" height="5"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
                                                                 <integer key="value" value="1"/>
@@ -137,27 +150,25 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="uSV-cb-RSm" firstAttribute="top" secondItem="KEY-Zs-cVY" secondAttribute="top" id="H2C-D6-r6N"/>
-                                                    <constraint firstItem="uSV-cb-RSm" firstAttribute="leading" secondItem="KEY-Zs-cVY" secondAttribute="leading" id="IqG-rs-S05"/>
+                                                    <constraint firstItem="uSV-cb-RSm" firstAttribute="leading" secondItem="KEY-Zs-cVY" secondAttribute="leading" constant="80" id="IqG-rs-S05"/>
                                                     <constraint firstAttribute="bottom" secondItem="uSV-cb-RSm" secondAttribute="bottom" id="SJG-YV-4O6"/>
                                                     <constraint firstAttribute="height" constant="55" id="Wlv-uH-Byz"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r1W-CI-AfS">
-                                                <rect key="frame" x="0.0" y="441" width="343" height="55"/>
+                                                <rect key="frame" x="0.0" y="241" width="343" height="55"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXn-1P-ECY">
-                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="55"/>
-                                                        <color key="backgroundColor" red="0.47095005559999997" green="0.94680161910000005" blue="0.78377451480000004" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <rect key="frame" x="45" y="0.0" width="270" height="55"/>
+                                                        <color key="backgroundColor" red="0.30725717540000003" green="0.66189664599999998" blue="0.45094966889999999" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="200" id="A3d-jF-Hym"/>
+                                                            <constraint firstAttribute="width" constant="270" id="A3d-jF-Hym"/>
                                                             <constraint firstAttribute="height" constant="55" id="spi-fW-cce"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="BodoniSvtyTwoSCITCTT-Book" family="Bodoni 72 Smallcaps" pointSize="25"/>
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="RubikDoodleShadow-Regular" family="Rubik Doodle Shadow" pointSize="25"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="   Use ID">
-                                                            <imageReference key="image" image="faceid" catalog="system" symbolScale="large"/>
-                                                        </state>
+                                                        <state key="normal" title="    Use   ID "/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                                 <integer key="value" value="20"/>
@@ -180,27 +191,25 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="HXn-1P-ECY" secondAttribute="bottom" id="2r8-PV-2yb"/>
-                                                    <constraint firstItem="HXn-1P-ECY" firstAttribute="leading" secondItem="r1W-CI-AfS" secondAttribute="leading" id="HtG-ME-Kwf"/>
+                                                    <constraint firstItem="HXn-1P-ECY" firstAttribute="leading" secondItem="r1W-CI-AfS" secondAttribute="leading" constant="45" id="HtG-ME-Kwf"/>
                                                     <constraint firstAttribute="height" constant="55" id="MYD-kU-6AI"/>
                                                     <constraint firstItem="HXn-1P-ECY" firstAttribute="top" secondItem="r1W-CI-AfS" secondAttribute="top" id="tzd-MC-3zv"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2bn-GU-MvF">
-                                                <rect key="frame" x="0.0" y="511" width="343" height="55"/>
+                                                <rect key="frame" x="0.0" y="311" width="343" height="55"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTk-Ab-9KB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="55"/>
-                                                        <color key="backgroundColor" red="0.47095005558853331" green="0.94680161909623584" blue="0.78377451480833871" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <rect key="frame" x="5" y="0.0" width="350" height="55"/>
+                                                        <color key="backgroundColor" red="0.30725717540000003" green="0.66189664599999998" blue="0.45094966889999999" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="200" id="T7K-Xa-wNi"/>
+                                                            <constraint firstAttribute="width" constant="350" id="T7K-Xa-wNi"/>
                                                             <constraint firstAttribute="height" constant="55" id="hsh-0r-euM"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="BodoniSvtyTwoSCITCTT-Book" family="Bodoni 72 Smallcaps" pointSize="25"/>
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="RubikDoodleShadow-Regular" family="Rubik Doodle Shadow" pointSize="25"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="  Google">
-                                                            <imageReference key="image" image="magnifyingglass.circle" catalog="system" symbolScale="large"/>
-                                                        </state>
+                                                        <state key="normal" title="Google"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                                 <integer key="value" value="20"/>
@@ -222,13 +231,13 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="ZTk-Ab-9KB" secondAttribute="bottom" id="ACG-JV-NkE"/>
-                                                    <constraint firstItem="ZTk-Ab-9KB" firstAttribute="leading" secondItem="2bn-GU-MvF" secondAttribute="leading" id="HXy-u4-S1n"/>
+                                                    <constraint firstItem="ZTk-Ab-9KB" firstAttribute="leading" secondItem="2bn-GU-MvF" secondAttribute="leading" constant="5" id="HXy-u4-S1n"/>
                                                     <constraint firstItem="ZTk-Ab-9KB" firstAttribute="top" secondItem="2bn-GU-MvF" secondAttribute="top" id="hof-jd-kdf"/>
                                                     <constraint firstAttribute="height" constant="55" id="tcb-bL-rsm"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="89Q-fN-fgI">
-                                                <rect key="frame" x="0.0" y="581" width="343" height="8"/>
+                                                <rect key="frame" x="0.0" y="381" width="343" height="8"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="8" id="de7-Sg-McC"/>
                                                 </constraints>
@@ -248,11 +257,11 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xuA-YC-ZHn" secondAttribute="trailing" constant="33" id="9ei-Me-VpG"/>
-                            <constraint firstItem="MHO-sV-CpX" firstAttribute="top" secondItem="xuA-YC-ZHn" secondAttribute="bottom" constant="16" id="ASW-at-Xnc"/>
-                            <constraint firstItem="xuA-YC-ZHn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="33" id="ELa-am-CGK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xuA-YC-ZHn" secondAttribute="trailing" constant="10" id="9ei-Me-VpG"/>
+                            <constraint firstItem="MHO-sV-CpX" firstAttribute="top" secondItem="xuA-YC-ZHn" secondAttribute="bottom" constant="30" id="ASW-at-Xnc"/>
+                            <constraint firstItem="xuA-YC-ZHn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="ELa-am-CGK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MHO-sV-CpX" secondAttribute="trailing" constant="16" id="otT-kX-yDB"/>
-                            <constraint firstItem="xuA-YC-ZHn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="14" id="pju-ai-Rm8"/>
+                            <constraint firstItem="xuA-YC-ZHn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="159" id="pju-ai-Rm8"/>
                             <constraint firstItem="MHO-sV-CpX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="vDe-MN-cWO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MHO-sV-CpX" secondAttribute="bottom" id="wpK-Vg-PXM"/>
                         </constraints>
@@ -347,14 +356,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="IMG" width="1407" height="3045"/>
         <image name="eye" catalog="system" width="128" height="79"/>
-        <image name="faceid" catalog="system" width="128" height="115"/>
-        <image name="key.viewfinder" catalog="system" width="128" height="115"/>
-        <image name="lis" width="720" height="1280"/>
-        <image name="magnifyingglass.circle" catalog="system" width="128" height="123"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
