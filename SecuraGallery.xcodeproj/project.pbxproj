@@ -18,6 +18,8 @@
 		1F8E8D4329118C1400744C94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F8E8D4229118C1400744C94 /* Assets.xcassets */; };
 		1F8E8D4629118C1400744C94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F8E8D4429118C1400744C94 /* LaunchScreen.storyboard */; };
 		1F8E8D4F291198F900744C94 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E8D4D291198F900744C94 /* GalleryViewController.swift */; };
+		1FC83E352B31D189001AFC89 /* RubikDoodleShadow-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FC83E342B31D189001AFC89 /* RubikDoodleShadow-Regular.ttf */; };
+		1FC83E372B31D3B6001AFC89 /* a_bosanova.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FC83E362B31D3B6001AFC89 /* a_bosanova.ttf */; };
 		1FF81E5329545EB600A6DB51 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FF81E5529545EB600A6DB51 /* InfoPlist.strings */; };
 		1FF81E5B29546F9600A6DB51 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FF81E5D29546F9600A6DB51 /* Localizable.strings */; };
 		38427CAF2939258A004FDCA8 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38427CAD29392589004FDCA8 /* ImageCell.swift */; };
@@ -51,6 +53,8 @@
 		1F8E8D4529118C1400744C94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F8E8D4729118C1400744C94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F8E8D4D291198F900744C94 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		1FC83E342B31D189001AFC89 /* RubikDoodleShadow-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RubikDoodleShadow-Regular.ttf"; sourceTree = "<group>"; };
+		1FC83E362B31D3B6001AFC89 /* a_bosanova.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = a_bosanova.ttf; sourceTree = "<group>"; };
 		1FF81E472954486D00A6DB51 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		1FF81E482954486D00A6DB51 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		1FF81E4A295448CB00A6DB51 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 		1F8E8D3829118C1300744C94 /* SecuraGallery */ = {
 			isa = PBXGroup;
 			children = (
+				1FC83E382B31D7CC001AFC89 /* Fonts */,
 				1F8E8D3929118C1300744C94 /* AppDelegate.swift */,
 				1F8E8D3B29118C1300744C94 /* SceneDelegate.swift */,
 				1F8E8D3D29118C1300744C94 /* ViewController.swift */,
@@ -124,6 +129,15 @@
 				1F8E8D4729118C1400744C94 /* Info.plist */,
 			);
 			path = SecuraGallery;
+			sourceTree = "<group>";
+		};
+		1FC83E382B31D7CC001AFC89 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1FC83E342B31D189001AFC89 /* RubikDoodleShadow-Regular.ttf */,
+				1FC83E362B31D3B6001AFC89 /* a_bosanova.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		7F007B732A4B06C62E6CA41A /* Pods */ = {
@@ -204,7 +218,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F8E8D4629118C1400744C94 /* LaunchScreen.storyboard in Resources */,
+				1FC83E372B31D3B6001AFC89 /* a_bosanova.ttf in Resources */,
 				1FF81E5329545EB600A6DB51 /* InfoPlist.strings in Resources */,
+				1FC83E352B31D189001AFC89 /* RubikDoodleShadow-Regular.ttf in Resources */,
 				1FF81E5B29546F9600A6DB51 /* Localizable.strings in Resources */,
 				1F8E8D4329118C1400744C94 /* Assets.xcassets in Resources */,
 				38427CB02939258A004FDCA8 /* ImageCell.xib in Resources */,
@@ -448,8 +464,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -480,8 +495,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
